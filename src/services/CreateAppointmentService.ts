@@ -16,10 +16,10 @@ class CreateAppointmentService {
   }
 
   public execute({ provider, date }: Resquest): Appointment {
-    const parsedDate = startOfHour(date);
+    const appointmentDate = startOfHour(date);
 
     const findAppointmentInSameDate = this.appointmentsRepository.findByDate(
-      parsedDate,
+      appointmentDate,
     );
 
     if (findAppointmentInSameDate) {
